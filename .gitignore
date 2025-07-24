@@ -42,7 +42,9 @@ build/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Additional project files
 livekit-cli/
-venv
+
 # Ignore Python virtual environments
 venv/
