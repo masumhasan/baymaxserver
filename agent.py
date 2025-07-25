@@ -5,21 +5,17 @@ from livekit.agents import AgentSession, Agent, RoomInputOptions
 from livekit.plugins import (
     noise_cancellation,
 )
-from livekit.plugins import openai 
+from livekit.plugins import google 
 from prompts import AGENT_INSTRUCTION, SESSION_INSTRUCTION
 from tools import get_weather, search_web, send_email
 load_dotenv()
 
-deepseek_llm = openai.LLM.with_deepseek(
-    model="deepseek-chat",  # this is DeepSeek-V3
-    temperature=0.7
-)
 
 class Assistant(Agent):
     def __init__(self) -> None:
         super().__init__(
             instructions=AGENT_INSTRUCTION,
-            llm=deepseek_llm.realtime.RealtimeModel(
+            llm=google.beta.realtime.RealtimeModel(
             voice="Aoede",
             temperature=0.8,
         ),
